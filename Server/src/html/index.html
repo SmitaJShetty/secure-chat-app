@@ -30,7 +30,7 @@
     });
     socket.on('clientcall',function(mesg){
         $('#messages').val(mesg.servermsg);
-        alert(mesg.servermsg);
+         console.log(mesg.servermsg);
     });
   });
     </script>

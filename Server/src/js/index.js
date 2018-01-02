@@ -4,6 +4,8 @@ var http=require('http').Server(app);
 var io = require('socket.io')(http);
 var fs= require('fs');
 
+var clients=[];
+
 app.get('/',function(req,resp){
   fs.readFile('../html/index.html','utf-8',function(err,contents){
     if(err==null){
@@ -17,6 +19,7 @@ app.get('/',function(req,resp){
 });
 
 io.on('connection',function(socket){
+  clients.push[socket.client];
   socket.on('chatmessage',function(mesg){
     console.log(mesg);
     socket.emit('clientcall',{servermsg:'hello from server'});
